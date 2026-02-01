@@ -1,0 +1,126 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                    INSTALLATION - QUICK START                      ║
+║              Project: Athlete Injury Analysis                      ║
+╚════════════════════════════════════════════════════════════════════╝
+
+📋 WHAT YOU NEED TO DO BEFORE STARTING:
+
+════════════════════════════════════════════════════════════════════
+STEP 1: Install Python (if you don't have it yet)
+════════════════════════════════════════════════════════════════════
+
+🪟 Windows:
+1. Go to: https://www.python.org/downloads/
+2. Download "Download Python 3.11" (or newer)
+3. Run the installer
+4. ⚠️ IMPORTANT: Check "Add Python to PATH"!
+5. Click "Install Now"
+
+🍎 Mac:
+1. Open Terminal
+2. Type: brew install python3
+   (If you don't have Homebrew: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
+
+🐧 Linux:
+1. Open Terminal
+2. Type: sudo apt-get update && sudo apt-get install python3 python3-pip
+
+════════════════════════════════════════════════════════════════════
+STEP 2: Install the required libraries
+════════════════════════════════════════════════════════════════════
+
+Open your terminal/command prompt and type:
+
+pip install pandas numpy matplotlib seaborn openpyxl jupyter
+
+Wait for everything to install (it may take 2-5 minutes).
+
+✅ Done when you see: "Successfully installed..."
+
+════════════════════════════════════════════════════════════════════
+STEP 3: Unpack the files
+════════════════════════════════════════════════════════════════════
+
+1. Extract the ZIP to a folder, e.g.: C:\Users\YourName\injury_project\
+2. Make sure you can see these files inside:
+   ✓ injury_data_consolidated.xlsx
+   ✓ START_HERE.md
+   ✓ quick_start_guide.ipynb
+   ✓ etc.
+
+════════════════════════════════════════════════════════════════════
+STEP 4: Launch Jupyter Notebook
+════════════════════════════════════════════════════════════════════
+
+1. Open your terminal/command prompt
+2. Navigate to the project folder:
+   
+   Windows:
+   cd C:\Users\YourName\injury_project
+   
+   Mac/Linux:
+   cd /Users/YourName/injury_project
+
+3. Run Jupyter:
+   
+   jupyter notebook
+
+4. A window will open in your browser
+5. Click on: quick_start_guide.ipynb
+6. Run cells one by one (Shift+Enter)
+
+════════════════════════════════════════════════════════════════════
+ALTERNATIVE: Use Python directly (without Jupyter)
+════════════════════════════════════════════════════════════════════
+
+If you don't want to use Jupyter:
+
+1. Create a new file: my_analysis.py
+2. Copy an example from code_examples.md
+3. Run: python my_analysis.py
+
+════════════════════════════════════════════════════════════════════
+VERIFICATION: Check that everything works
+════════════════════════════════════════════════════════════════════
+
+Create a file test.py with this content:
+
+import pandas as pd
+print("✅ Pandas works!")
+df = pd.read_excel('injury_data_consolidated.xlsx', sheet_name='NBA_Processed')
+print(f"✅ Loaded {len(df)} rows of NBA data")
+print("🎉 Everything is ready!")
+
+Run: python test.py
+
+If you see "🎉 Everything is ready!" - you're all set!
+
+════════════════════════════════════════════════════════════════════
+PROBLEMS? MOST COMMON ERRORS:
+════════════════════════════════════════════════════════════════════
+
+❌ "pip is not recognized..."
+   → Python is not in PATH. Reinstall Python with "Add to PATH" checked
+
+❌ "No module named 'pandas'"
+   → Run again: pip install pandas numpy matplotlib seaborn openpyxl
+
+❌ "Permission denied"
+   → Windows: run terminal as Administrator
+   → Mac/Linux: use "sudo pip install..."
+
+❌ "File not found: injury_data_consolidated.xlsx"
+   → Make sure your terminal is in the folder with the files (use "cd")
+
+════════════════════════════════════════════════════════════════════
+NEXT STEPS:
+════════════════════════════════════════════════════════════════════
+
+1. Read: START_HERE.md
+2. Open: quick_start_guide.ipynb
+3. Experiment with: code_examples.md
+4. Create your own analyses!
+
+════════════════════════════════════════════════════════════════════
+                        GOOD LUCK! 🚀
+════════════════════════════════════════════════════════════════════
