@@ -10,7 +10,7 @@ This project contains consolidated and processed data on athlete injuries from v
 
 ---
 
-## 📁 Output Files
+##  Output Files
 
 ### 1. `injury_data_consolidated.xlsx`
 Main data file containing **12 sheets**:
@@ -43,7 +43,7 @@ Jupyter Notebook with the full processing code (for future reference).
 
 ---
 
-## 🔑 Key Transformations
+##  Key Transformations
 
 ### NBA / WNBA:
 ✅ **Split "made-attempted" columns:**
@@ -75,21 +75,9 @@ Jupyter Notebook with the full processing code (for future reference).
 - Fatigue
 - Other
 
-✅ **New metrics:**
-- `Injury_Category` - categorized injury
-- `Days_Absent` - number of days absent (Date of return - Date of Injury)
-- `League` - Soccer
-
-### Collegiate:
-✅ **New health metrics:**
-- `BMI` - Body Mass Index (weight / height²)
-- `ACL_Risk_Category` - Low / Medium / High / Very High (based on ACL_Risk_Score)
-- `Training_Load_Score` - Training_Intensity × Training_Hours_Per_Week
-- `League` - Collegiate
-
 ---
 
-## 📊 Data Statistics
+##  Data Statistics
 
 ### Number of athletes:
 - **NBA**: 20 players with ACL injuries
@@ -113,7 +101,7 @@ Each player has multiple rows:
 
 ---
 
-## 🎯 Analysis Possibilities
+##  Analysis Possibilities
 
 ### 1. NBA vs WNBA Comparisons
 ```python
@@ -166,7 +154,7 @@ summary.pivot_table(values=['PTS', 'AST', 'REB'],
 
 ---
 
-## 🔍 Important Columns
+##  Important Columns
 
 ### Basketball (NBA/WNBA):
 - **Player_Name** - filter by player
@@ -197,7 +185,7 @@ summary.pivot_table(values=['PTS', 'AST', 'REB'],
 
 ---
 
-## 🚀 Next Steps (Data Analysis)
+##  Next Steps for Data Analysis
 
 1. **Exploratory Data Analysis (EDA)**
    - Distributions of stats before/after injury
@@ -215,19 +203,19 @@ summary.pivot_table(values=['PTS', 'AST', 'REB'],
    - **Clustering** (K-means) - grouping players by recovery profile
    - **Classification** - predicting return to form
 
-4. **Injury Comparisons**
+4. **Injury Comparisons**(Optional If we will have time for it)
    - ACL vs other injuries (Soccer)
    - Effect of age on return to form
-   - Effect of recovery time on stats
+   - Effect of recovery time on stats*
 
 ---
 
-## 💡 Tips for Working with the Data
+##  Tips for Working with the Data
 
 ### Missing Values:
 - NBA/WNBA: some rows may have NaN in columns (e.g., season was incomplete)
 - Soccer: some matches may have missing stats
-- Collegiate: **no missing values** ✅
+- Collegiate: **no missing values** 
 
 ### Filtering Periods (NBA/WNBA):
 ```python
@@ -247,30 +235,3 @@ after = player[player['Period'] == 'Summary After']['PTS'].values[0]
 change_pct = ((after - before) / before) * 100
 print(f"Points change: {change_pct:.1f}%")
 ```
-
----
-
-## 📞 Contact and Support
-
-Questions? Issues? 
-- Check `data_dictionary.xlsx` for column details
-- See `injury_data_processing.ipynb` for processing code
-- You can modify the notebook and reprocess the data
-
----
-
-## ✅ Project Status
-
-- [x] Loading raw data
-- [x] Cleaning and transformation
-- [x] Injury categorization
-- [x] Consolidation to Excel
-- [x] Creating summaries
-- [x] Documentation
-- [ ] **Data Analysis** - next step!
-
-**Processed on:** 2026-02-01
-
----
-
-**Good luck with the analysis! 🎉**

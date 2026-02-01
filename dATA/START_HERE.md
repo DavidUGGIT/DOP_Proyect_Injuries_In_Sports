@@ -1,13 +1,12 @@
-# 🎯 START HERE - Injury Project
+#  START HERE - Injury Project
 
-## Welcome! 👋
 
 This is a complete data package for the athlete injury analysis project.  
 **Read this file first — it will only take 2 minutes!**
 
 ---
 
-## 📦 What's in this package?
+##  What's in this package?
 
 ### 1️⃣ **DATA (the most important!):**
 - `injury_data_consolidated.xlsx` - **main data file** (12 sheets)
@@ -24,7 +23,7 @@ This is a complete data package for the athlete injury analysis project.
 
 ---
 
-## 🚀 How to get started? (3 steps)
+##  How to get started? (3 steps)
 
 ### STEP 1: Install the required libraries
 
@@ -68,7 +67,7 @@ print(df_nba.head())
 
 ---
 
-## 📊 What data do you have?
+##  What data do you have?
 
 ### Basketball (NBA + WNBA):
 - **20 NBA players** with ACL injuries
@@ -88,29 +87,8 @@ print(df_nba.head())
 
 ---
 
-## 🗂️ Which sheets to use?
 
-### ✅ FOR ANALYSIS (USE THESE!):
-- `NBA_Processed` ⭐
-- `WNBA_Processed` ⭐
-- `Basketball_Combined` ⭐ (NBA + WNBA together)
-- `Soccer_Processed` ⭐
-- `Collegiate_Processed` ⭐
-- `Summary_Basketball` (pre-made summaries)
-- `Summary_Soccer`
-- `Summary_Collegiate`
-
-### 📁 ARCHIVE (you almost never need these):
-- `NBA_Raw`
-- `WNBA_Raw`
-- `Soccer_Raw`
-- `Collegiate_Raw`
-
-**Difference:** Raw contains unprocessed data (strings like "8.7-18.7"), Processed has everything converted to numbers (FG_made=8.7, FG_attempted=18.7). See `RAW_vs_PROCESSED_guide.md` for details.
-
----
-
-## 💡 What can I do with this data?
+##  What can we do with this data?
 
 ### Basic analyses:
 ✅ Compare a player before and after injury  
@@ -127,8 +105,6 @@ print(df_nba.head())
 ✅ Predicting return to form  
 
 ---
-
-## 📚 Code examples
 
 ### Example 1: Compare a player before/after
 ```python
@@ -176,94 +152,3 @@ print(top)
 **More examples:** See `code_examples.md` or `quick_start_guide.ipynb`!
 
 ---
-
-## ❓ Have questions?
-
-### "How to filter data?"
-See: `code_examples.md` section 2 (Filtering)
-
-### "How to make visualizations?"
-See: `code_examples.md` section 6 (Visualizations)  
-or `quick_start_guide.ipynb` examples 5-8
-
-### "What's the difference between Raw and Processed?"
-See: `RAW_vs_PROCESSED_guide.md`
-
-### "What columns are available?"
-See: `data_dictionary.xlsx`
-
-### "I need more details"
-See: `README.md` (full documentation)
-
----
-
-## 🎓 Suggested learning order:
-
-1. **Read this file** ← You're here! ✅
-2. **Open `quick_start_guide.ipynb`** - run the examples
-3. **Experiment with `code_examples.md`** - copy and modify code
-4. **Read `README.md`** when you need details
-5. **Create your own analyses!** 🚀
-
----
-
-## ⚠️ Most common mistakes (and how to avoid them)
-
-### ❌ Mistake 1: Using Raw instead of Processed
-```python
-# WRONG:
-df = pd.read_excel(FILE, sheet_name='NBA_Raw')
-df['Field goals made-attempted per game']  # This is a string!
-
-# CORRECT:
-df = pd.read_excel(FILE, sheet_name='NBA_Processed')
-df['FG_made']  # This is a number!
-```
-
-### ❌ Mistake 2: Forgetting to filter Period
-```python
-# WRONG (mixing seasons with summary):
-df['PTS'].mean()  # All rows together!
-
-# CORRECT:
-before = df[df['Period'] == 'Summary Before']
-before['PTS'].mean()  # Only before
-```
-
-### ❌ Mistake 3: Division by zero
-```python
-# WRONG:
-change = (after - before) / before * 100  # Could be /0!
-
-# CORRECT:
-if before > 0:
-    change = (after - before) / before * 100
-else:
-    change = None
-```
-
----
-
-## 📞 Need help?
-
-1. Check `README.md` - answers to most questions
-2. See `code_examples.md` - there may already be ready code
-3. Run `quick_start_guide.ipynb` - interactive examples
-
----
-
-## ✨ Good luck with the project!
-
-You now have:
-- ✅ Processed data ready for analysis
-- ✅ Documentation and examples
-- ✅ Jupyter Notebooks
-- ✅ Ready-to-use code snippets
-
-**Everything you need to start analyzing athlete injuries!** 🎉
-
----
-
-**Package created:** 2026-02-01  
-**Version:** 1.0  
-**Status:** ✅ Ready to use

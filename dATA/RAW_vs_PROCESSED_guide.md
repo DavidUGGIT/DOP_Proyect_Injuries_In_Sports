@@ -1,8 +1,8 @@
-# 🔄 RAW vs PROCESSED - Quick Guide
+#  RAW vs PROCESSED - Quick Guide
 
 ## Main Differences
 
-### 📊 NBA_Raw (22 columns)
+###  NBA_Raw (22 columns)
 ```
 Name - Season: "Derrick Rose summary before"
 Field goals made-attempted per game: "8,7-18,7"    ← STRING! ❌
@@ -16,7 +16,7 @@ games played: 159
 
 ---
 
-### ✨ NBA_Processed (33 columns = 22 + 11 new)
+###  NBA_Processed (33 columns = 22 + 11 new)
 ```
 Player_Name: "Derrick Rose"           ← NEW! ⭐
 Period: "Summary Before"              ← NEW! ⭐
@@ -37,9 +37,9 @@ GS_percent: 100.0                     ← NEW! Calculated ✅
 
 ---
 
-## 🎯 Usage Example
+##  Usage Example
 
-### ❌ Wrong (with Raw):
+###  Wrong (with Raw):
 ```python
 # You have to parse strings yourself
 df_raw = pd.read_excel(FILE, sheet_name='NBA_Raw')
@@ -52,7 +52,7 @@ fg_string = df_raw.iloc[0]['Field goals made-attempted per game']  # "8,7-18,7"
 # = 10+ lines of code! 😰
 ```
 
-### ✅ Correct (with Processed):
+###  Correct (with Processed):
 ```python
 # Everything is ready!
 df = pd.read_excel(FILE, sheet_name='NBA_Processed')
@@ -69,7 +69,7 @@ derrick = df[df['Player_Name'] == 'Derrick Rose']
 
 ---
 
-## 📋 Full List of New Columns (Processed)
+##  Full List of New Columns (Processed)
 
 | Column | Description | Use |
 |--------|-------------|-----|
@@ -87,9 +87,9 @@ derrick = df[df['Player_Name'] == 'Derrick Rose']
 
 ---
 
-## 🗂️ Which sheets to use?
+##  Which sheets to use?
 
-### For ANALYSIS (USE THESE! ⭐):
+### For ANALYSIS (USE THESE!):
 - ✅ `NBA_Processed`
 - ✅ `WNBA_Processed`
 - ✅ `Basketball_Combined` (NBA + WNBA together)
@@ -107,20 +107,19 @@ derrick = df[df['Player_Name'] == 'Derrick Rose']
 
 ---
 
-## 💡 When to use Raw?
+##  When to use Raw?
 
-**Almost never!** 
 
 Raw is only an archive of the original data. Use it only when:
 - You want to check original values
 - Something went wrong during processing (very unlikely)
 - You want to do DIFFERENT transformations than the ones already done
 
-**In 99% of cases: USE PROCESSED!** ⭐
+**In 99% of cases: USE PROCESSED!** 
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```python
 import pandas as pd
@@ -144,4 +143,4 @@ print(f"Derrick Rose PTS: {before:.1f} → {after:.1f} ({change:+.1f}%)")
 
 ---
 
-**Summary: RAW = archive, PROCESSED = use for analysis! ✨**
+**Summary: RAW = archive, PROCESSED = use for analysis!**
