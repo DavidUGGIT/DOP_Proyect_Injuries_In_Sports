@@ -1,5 +1,4 @@
-#  START HERE - Injury Project
-
+# START HERE - Injury Project
 
 This is a complete data package for the athlete injury analysis project.  
 **Read this file first — it will only take 2 minutes!**
@@ -23,7 +22,7 @@ This is a complete data package for the athlete injury analysis project.
 
 ---
 
-##  How to get started? (3 steps)
+## How to get started? (3 steps)
 
 ### STEP 1: Install the required libraries
 
@@ -67,7 +66,7 @@ print(df_nba.head())
 
 ---
 
-##  What data do you have?
+## 📊 What data do you have?
 
 ### Basketball (NBA + WNBA):
 - **20 NBA players** with ACL injuries
@@ -87,8 +86,29 @@ print(df_nba.head())
 
 ---
 
+## Which sheets to use?
 
-##  What can we do with this data?
+###  FOR ANALYSIS (USE THESE!):
+- `NBA_Processed` ⭐
+- `WNBA_Processed` ⭐
+- `Basketball_Combined` ⭐ (NBA + WNBA together)
+- `Soccer_Processed` ⭐
+- `Collegiate_Processed` ⭐
+- `Summary_Basketball` (pre-made summaries)
+- `Summary_Soccer`
+- `Summary_Collegiate`
+
+###  ARCHIVE (you almost never need these):
+- `NBA_Raw`
+- `WNBA_Raw`
+- `Soccer_Raw`
+- `Collegiate_Raw`
+
+**Difference:** Raw contains unprocessed data (strings like "8.7-18.7"), Processed has everything converted to numbers (FG_made=8.7, FG_attempted=18.7). See `RAW_vs_PROCESSED_guide.md` for details.
+
+---
+
+## 💡 What can we do with this data?
 
 ### Basic analyses:
 ✅ Compare a player before and after injury  
@@ -105,6 +125,8 @@ print(df_nba.head())
 ✅ Predicting return to form  
 
 ---
+
+##  Code examples
 
 ### Example 1: Compare a player before/after
 ```python
@@ -148,7 +170,3 @@ df = pd.read_excel('injury_data_consolidated.xlsx',
 top = df['Injury_Category'].value_counts().head(10)
 print(top)
 ```
-
-**More examples:** See `code_examples.md` or `quick_start_guide.ipynb`!
-
----

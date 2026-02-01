@@ -1,6 +1,6 @@
 # 🏀⚽ Injury Project - Data Processing
 
-## 📋 Project Overview
+##  Project Overview
 
 This project contains consolidated and processed data on athlete injuries from various leagues:
 - **NBA** - professional male basketball players (ACL injuries)
@@ -10,7 +10,7 @@ This project contains consolidated and processed data on athlete injuries from v
 
 ---
 
-##  Output Files
+## Output Files
 
 ### 1. `injury_data_consolidated.xlsx`
 Main data file containing **12 sheets**:
@@ -74,6 +74,18 @@ Jupyter Notebook with the full processing code (for future reference).
 - Illness - Virus
 - Fatigue
 - Other
+
+✅ **New metrics:**
+- `Injury_Category` - categorized injury
+- `Days_Absent` - number of days absent (Date of return - Date of Injury)
+- `League` - Soccer
+
+### Collegiate:
+✅ **New health metrics:**
+- `BMI` - Body Mass Index (weight / height²)
+- `ACL_Risk_Category` - Low / Medium / High / Very High (based on ACL_Risk_Score)
+- `Training_Load_Score` - Training_Intensity × Training_Hours_Per_Week
+- `League` - Collegiate
 
 ---
 
@@ -154,7 +166,7 @@ summary.pivot_table(values=['PTS', 'AST', 'REB'],
 
 ---
 
-##  Important Columns
+## 🔍 Important Columns
 
 ### Basketball (NBA/WNBA):
 - **Player_Name** - filter by player
@@ -185,37 +197,12 @@ summary.pivot_table(values=['PTS', 'AST', 'REB'],
 
 ---
 
-##  Next Steps for Data Analysis
-
-1. **Exploratory Data Analysis (EDA)**
-   - Distributions of stats before/after injury
-   - Correlations between variables
-   - Outlier analysis
-
-2. **Visualizations**
-   - NBA vs WNBA comparisons (bar charts)
-   - Radar charts for players (multi-dimensional)
-   - Heatmaps of stat changes
-   - Scatter plots (2D comparisons)
-
-3. **Multivariate Analysis**
-   - **PCA** (Principal Component Analysis) - dimensionality reduction
-   - **Clustering** (K-means) - grouping players by recovery profile
-   - **Classification** - predicting return to form
-
-4. **Injury Comparisons**(Optional If we will have time for it)
-   - ACL vs other injuries (Soccer)
-   - Effect of age on return to form
-   - Effect of recovery time on stats*
-
----
-
 ##  Tips for Working with the Data
 
 ### Missing Values:
 - NBA/WNBA: some rows may have NaN in columns (e.g., season was incomplete)
 - Soccer: some matches may have missing stats
-- Collegiate: **no missing values** 
+- Collegiate: **no missing values** ✅
 
 ### Filtering Periods (NBA/WNBA):
 ```python
