@@ -2,6 +2,9 @@ from sklearn.linear_model import LinearRegression
 from .utils.simple_stats import simple_regression
 import pandas as pd
 import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, classification_report
 
 def linear_regr_basket(basketball_processed):
     train_x, train_y, test_x, test_y = basketball_processed
@@ -41,3 +44,17 @@ def linear_regr_basket(basketball_processed):
     results_single_df = pd.DataFrame(results_single)
 
     return results_multi_df, results_single_df
+
+def scaling_fitting_knn(X_train, y_train, X_test, y_test):
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.fit_transform(X_test)
+    res_acc = []
+    for k in range(1,11):
+        knn = KNeighborsClassifier(n_neighbors=k)
+        knn.fit(X_train, y_train)
+        y_pred = knn.predict(X_test)
+        print(f"Accuracy for {k} neighbours:", accuracy_score(y_test, y_pred))
+        print(classification_report(y_test, y_pred))
+        res_acc.append(accuracy_score(y_test, y_pred))
+    return y_pred, res_acc
