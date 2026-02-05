@@ -1,56 +1,43 @@
 from sklearn.linear_model import LinearRegression
-from utils.simple_stats import simple_regression
+from .utils.simple_stats import simple_regression
+import pandas as pd
 
-def linear_regr_basket(basketball_processed):
-    train_x, train_y, test_x, test_y = basketball_processed
-    model = LinearRegression()
-    train_x = train_x[["PTS", "AST", "REB"]]
-    test_x = test_x[["PTS", "AST", "REB"]]
-    results = []
-    for stat in ("PTS", "AST", "REB"):
-        train_y = train_y.loc[:,stat]
-        test_y = train_y.loc[:, stat]
-        model.fit(train_x, train_y)
-        preds = model.predict(test_x)
-        results.append({"Coefficients": model.coef_,
-        "Intercept": model.intercept_,
-        "R²": model.score(test_x, test_y)})
-    results_three_var = pd.DataFrame(results)
-    for stat in ("PTS", "AST", "REB"):
-        train_y = train_y.loc[:,stat]
-        test_y = train_y.loc[:, stat]
-        train_x = train_x.loc[:, stat]
-        test_x = test_x.loc[:, stat]
-        model.fit(train_x, train_y)
-        preds = model.predict(test_x)
-        results.append({"Coefficients": model.coef_,
-        "Intercept": model.intercept_,
-        "R²": model.score(X_test, y_test)})
-    results_simple_reg = pd.DataFrame(results)
-    return results_three_var, results_simple_reg
 
 def linear_regr_basket(basketball_processed):
     train_x, train_y, test_x, test_y = basketball_processed
 
-    train_x = train_x[["PTS", "AST", "REB"]]
-    test_x = test_x[["PTS", "AST", "REB"]]
-    results = []
-    for stat in ("PTS", "AST", "REB"):
-        train_y_temp = train_y.loc[:,stat]
-        test_y_temp = train_y.loc[:, stat]
-        part_results = simple_regression((train_x, train_y_temp, test_x, test_y_temp))
-        results.append(part_results)
-    results_three_var = pd.DataFrame(results)
-    for stat in ("PTS", "AST", "REB"):
-        train_y_temp2 = train_y.loc[:,stat]
-        test_y_temp2 = train_y.loc[:, stat]
-        train_x_temp2 = train_x.loc[:, stat]
-        test_x_temp2 = test_x.loc[:, stat]
-        model.fit(train_x, train_y)
-        preds = model.predict(test_x)
-        results.append({"Coefficients": model.coef_,
-        "Intercept": model.intercept_,
-        "R²": model.score(X_test, y_test)})
-    results_simple_reg = pd.DataFrame(results)
-    return results_three_var, results_simple_reg
+    cols = ["PTS", "AST", "REB"]
 
+    train_x_multi = train_x[cols]
+    test_x_multi = test_x[cols]
+
+    results_multi = []
+
+    for target in cols:
+        train_y_temp = train_y[target]
+        test_y_temp = test_y[target]
+
+        res = simple_regression((train_x_multi, train_y_temp, test_x_multi, test_y_temp))
+        res["Model"] = "3 variables"
+        res["Target"] = target
+        results_multi.append(res)
+
+    results_multi_df = pd.DataFrame(results_multi)
+
+    results_single = []
+
+    for col in cols:
+        train_x_single = train_x[[col]]  # podwójne [[]] → zawsze 2D
+        test_x_single = test_x[[col]]
+
+        train_y_temp = train_y[col]
+        test_y_temp = test_y[col]
+
+        res = simple_regression((train_x_single, train_y_temp, test_x_single, test_y_temp))
+        res["Model"] = "1 variable"
+        res["Target"] = col
+        results_single.append(res)
+
+    results_single_df = pd.DataFrame(results_single)
+
+    return results_multi_df, results_single_df
