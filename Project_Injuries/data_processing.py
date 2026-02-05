@@ -11,3 +11,7 @@ def basketball_process_test_train(summary_basketball):
     basketball_test_after = basketball_after.iloc[20:, :]
     basketball_test_before = basketball_before.iloc[20:, :]
     return (basketball_train_before, basketball_train_after,basketball_test_before, basketball_test_after)
+def merge_vect(x, y):
+    z = np.concatenate((x, y))
+
+

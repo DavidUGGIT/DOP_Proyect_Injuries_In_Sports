@@ -1,7 +1,7 @@
 from sklearn.linear_model import LinearRegression
 from .utils.simple_stats import simple_regression
 import pandas as pd
-
+import numpy as np
 
 def linear_regr_basket(basketball_processed):
     train_x, train_y, test_x, test_y = basketball_processed
