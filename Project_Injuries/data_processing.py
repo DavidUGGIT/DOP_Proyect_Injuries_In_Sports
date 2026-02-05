@@ -1,9 +1,6 @@
 import pandas as pd
-from Project_Injuries.utils.read import load_data_consolidated
 
-def basketball_process_test_train():
-    frames_sports = load_data_consolidated()
-    summary_basketball = frames_sports['Summary_Basketball']
+def basketball_process_test_train(summary_basketball):
     summary_basketball = summary_basketball.iloc[:, :-2]
 
     basketball_before = summary_basketball.loc[summary_basketball.Period == 'Summary Before', :]

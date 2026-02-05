@@ -2,15 +2,15 @@ import os
 import pandas as pd
 from pathlib import Path
 
-def load_data_consolidated():
+def load_data_consolidated(folder_path):
     '''ładowanie danych'''
     data_frames = dict()
-    BASE_DIR = Path(__file__).resolve().parents[1]  # project root
-    DATA_PATH = BASE_DIR / "data" / "injury_data_consolidated.xlsx"
-    xls = pd.ExcelFile(DATA_PATH)
+    file_path = os.path.join(folder_path, "injury_data_consolidated.xlsx")
+    print(file_path)
+    xls = pd.ExcelFile(file_path)
     tables_names = xls.sheet_names
     for name in tables_names:
-        data_frames.update({name:pd.read_excel(DATA_PATH, sheet_name=name)})
+        data_frames.update({name:pd.read_excel(file_path, sheet_name=name)})
     return data_frames
 
 
