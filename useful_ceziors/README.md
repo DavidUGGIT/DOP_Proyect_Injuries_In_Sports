@@ -4,8 +4,6 @@
 
 This project contains consolidated and processed data on athlete injuries from various leagues:
 - **NBA** - professional male basketball players (ACL injuries)
-- **WNBA** - professional female basketball players (ACL injuries)
-- **Soccer** - professional soccer players (various injury types)
 - **Collegiate** - student-athletes (ACL injury risk)
 
 ---
