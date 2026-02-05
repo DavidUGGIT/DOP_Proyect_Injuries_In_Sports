@@ -4,17 +4,17 @@ from pathlib import Path
 
 def load_data_consolidated():
     '''ładowanie danych'''
-    data_frames = []
+    data_frames = dict()
     BASE_DIR = Path(__file__).resolve().parents[1]  # project root
     DATA_PATH = BASE_DIR / "data" / "injury_data_consolidated.xlsx"
     xls = pd.ExcelFile(DATA_PATH)
     tables_names = xls.sheet_names
     for name in tables_names:
-        data_frames.append(pd.read_excel(DATA_PATH, sheet_name=name))
+        data_frames.update({name:pd.read_excel(DATA_PATH, sheet_name=name)})
     return data_frames
 
 
-def football_player_impact():
+def load_football_player_impact():
 
     BASE_DIR = Path(__file__).resolve().parents[1]  # project root
     DATA_PATH = BASE_DIR / "data" / "player_injuries_impact.csv"
